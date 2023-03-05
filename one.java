@@ -38,15 +38,15 @@ public class one {
 		
 		if(obj1.price < obj2.price && obj1.price < obj3.price)
 		{
-			System.out.println(obj1.price +"  is the lowets");
+			System.out.println("Product code: "+obj1.pcode+", Product Name: "+obj1.pname+", Price: "+obj1.price +" has the lowest price.");
 		}
 		else if(obj2.price < obj1.price && obj2.price < obj3.price)
 		{
-			System.out.println(obj2.price +" is the lowest value");
+			System.out.println("Product code: "+obj2.pcode+", Product Name: "+obj2.pname+", Price: "+obj2.price +" has the lowest price.");
 		}
 		else
 		{
-			System.out.println(obj3.price +" is the lowest value");
+			System.out.println("Product code: "+obj3.pcode+", Product Name: "+obj3.pname+", Price: "+obj3.price +" has the lowest price.");
 		}
 	}
 
