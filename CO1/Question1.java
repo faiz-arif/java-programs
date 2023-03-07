@@ -5,7 +5,7 @@ class product{
 	String pname;
 	int price;
 }
-public class one {
+public class Question1 {
 
 	public static void main(String[] args) {
 
@@ -17,7 +17,7 @@ public class one {
 		
 		System.out.println("Enter the product code of the first object");
 		obj1.pcode = sc.nextInt();
-		System.out.println("enter the product name");
+		System.out.println("enter the first product name");
 		obj1.pname = sc.next();
 		System.out.println("enter the price of the first product");
 		obj1.price = sc.nextInt();
