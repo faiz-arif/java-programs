@@ -1,4 +1,3 @@
-package faiz;
 import java.util.*;
 class product{
 	int pcode;
@@ -49,5 +48,4 @@ public class Question1 {
 			System.out.println("Product code: "+obj3.pcode+", Product Name: "+obj3.pname+", Price: "+obj3.price +" has the lowest price.");
 		}
 	}
-
 }
