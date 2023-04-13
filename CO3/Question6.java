@@ -1,78 +1,82 @@
-import java.util.*;
-import java.lang.Math;
-interface Prototypes {
-    double Area ();
-    double Perimeter();
+package CO3;
+import java.util.Scanner;
+
+interface ShapeInterface
+{
+  float area();
+  float perimeter();
 }
 
-class Circle implements Prototypes {
-
-    float Radius;
-
-    Circle ( float radius) {
-        this.Radius = radius;
-    }
-    public double Area() {
-        return (Math.PI * Math.pow(this.Radius,2.0));
-    }
-
-    public double Perimeter () {
-        return (2 * Math.PI * this.Radius);
-    }
+class Circle implements ShapeInterface
+{
+  float r;
+  public Circle(float r)
+  {
+    this.r = r;
+  }
+  public float area()
+  {
+    return 3.14f*r*r;
+  }
+  public float perimeter()
+  {
+    return 2*3.14f*r;
+  }
 }
 
-class Rectangle implements Prototypes {
-    float Length;
-    float Breadth;
+class Rectangle implements ShapeInterface
+{
+  float l, b;
+  public Rectangle(float l, float b)
+  {
+    this.l = l;
+    this.b = b;
+  }
 
-    Rectangle (float length ,float breadth) {
-        this.Length = length;
-        this.Breadth = breadth;
-    }
+  public float area()
+  {
+    return l * b;
+  }
 
-    public double Area() {
-        return (this.Length * this.Breadth);
-    }
-
-    public double Perimeter() {
-        return 2 * (this.Length * this.Breadth);
-    }
+  public float perimeter()
+  {
+    return 2*(l+b);
+  }
 }
-public class Question6 {
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int choice;
-        System.out.println("OPTIONS:\n1.For circle\n2.For Rectangle\n0.For Exit");
-        do {
-            System.out.println("Enter the options:");
-            choice = scan.nextInt();
-            switch (choice){
-                case 1:{
-                    System.out.println("Enter the Radius of the Circle");
-                    float radius = scan.nextFloat();
-                    Circle cirObj = new Circle(radius);
-                    System.out.println("Area of the given Circle: " + cirObj.Area());
-                    System.out.println("Perimeter of the given Circle: " + cirObj.Perimeter());
-                    break;
-                }
-                case 2:{
-                    System.out.println("Enter the length and breadth:");
-                    float length = scan.nextFloat();
-                    float breadth = scan.nextFloat();
-                    Rectangle rectObj =  new Rectangle( length,  breadth);
-                    System.out.println("Area of the given Rectangle: " + rectObj.Area());
-                    System.out.println("Perimeter of the given Rectangle: " + rectObj.Perimeter());
-                    break;
-                }
-                case 0:{
-                    System.out.println("Exiting");
-                    break;
-                }
-                default:{
-                    System.out.println("Invalid Choice.......!");
-                    break;
-                }
-            }
-        }while(choice!=0);
-    }
+
+public class Question6
+{
+  public static void main(String args[])
+  {
+    Scanner sc = new Scanner(System.in);
+    int choice;
+    float result;
+
+    do {
+      System.out.println("Select a shape:\n1. Circle\n2. Rectangle\n3. Exit");
+
+      choice = sc.nextInt();
+
+      switch (choice) {
+        case 1:
+          System.out.println("Enter radius:");
+          Circle circle = new Circle(sc.nextFloat());
+          System.out.println("Area: " + circle.area());
+          System.out.println("Perimeter: " + circle.perimeter());
+          break;
+        case 2:
+          System.out.println("Enter length and width:");
+          Rectangle rectangle = new Rectangle(sc.nextFloat(), sc.nextFloat());
+          System.out.println("Area: " + rectangle.area());
+          System.out.println("Perimeter: " + rectangle.perimeter());
+          break;
+        case 3:
+          System.out.println("Exiting program.");
+          break;
+        default:
+          System.out.println("Invalid choice. Try again.");
+          break;
+      }
+    } while (choice != 3);
+  }
 }

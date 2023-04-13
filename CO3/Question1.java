@@ -1,3 +1,4 @@
+package CO3;
 import java.util.*;
 
 class operator {
@@ -12,7 +13,7 @@ class operator {
     }
 }
 
-public class Question1 {
+ class Question1 {
     public static void main(String[] args) {
         operator object = new operator();
         Scanner scan = new Scanner(System.in);

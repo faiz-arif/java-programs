@@ -1,3 +1,5 @@
+package CO3;
+
 import java.util.*;
 
 class Person {
@@ -45,7 +47,7 @@ class Teachers extends Employees {
     }
 }
 
-class functions {
+class Functions1 {
     Scanner scan = new Scanner(System.in);
     Teachers[] object;
     void insert() {
@@ -78,9 +80,9 @@ class functions {
         }
     }
 }
-public class Question3 {
+ class Question3 {
     public static void main(String[] args) {
-        function object = new function();
+        Functions1 object = new Functions1();
         object.insert();
         object.display();
     }

@@ -1,87 +1,56 @@
-import java.util.*;
-import java.text.DateFormat;
-import java.util.Calendar;
-interface calculate {
-    double Total(int quantity, float price);
-    void NetAmount();
+package CO3;
+import java.util.Scanner;
+
+interface BillInterface
+{
+  int calc();
 }
 
-class Order implements calculate {
-    Calendar cal = Calendar.getInstance();
-    DateFormat DFormat = DateFormat.getDateInstance();
-    String date;
-    int orderNo;
-    double Net_Amount;
+class Bill
+{
+  int[] productId, quantity, unit_price;
+  char[] name;
+  int net_amount;
+  public Bill(int[] productId, char[] name, int[] quantity, int[] unit_price) {
+    this.productId = productId;
+    this.quantity = quantity;
+    this.unit_price = unit_price;
+    this.name = name;
+  }
 
-    Product[] pObject;
-    Scanner scan = new Scanner(System.in);
-    Order (int no) {
-        this.orderNo = no;
-        this.date =  DFormat.format(cal.getTime());
-        System.out.println("Enter the No: of products:");
-        int n = scan.nextInt();
-        pObject = new Product[n];
-        for(int i = 0; i < pObject.length; i++){
-            System.out.println("Enter the product ID, Name, Quantity and Unit Price:");
-            int id = scan.nextInt();
-            String name = scan.next();
-            int quantity = scan.nextInt();
-            float price = scan.nextFloat();
-            pObject[i] = new Product( id, name, quantity, price);
-        }
-        this.NetAmount();
+  public int calc(int size)
+  {
+    int net_amount=0;
+    for(int i=0; i<size; i++)
+    {
+      net_amount += quantity[i]*unit_price[i];
     }
-    public double  Total(int quantity, float price) {
-        return quantity * price;
-    }
-    public void NetAmount() {
-        for( int i = 0; i < pObject.length; i++){
-            this.Net_Amount += pObject[i].total;
-        }
-    }
-
-    class Product {
-        int ProductId, Quantity;
-        float unitPrice;
-        String Name;
-        double total;
-        Product(int id,String name, int quantity, float Price) {
-            this.ProductId = id;
-            this.Name = name;
-            this.Quantity = quantity;
-            this.unitPrice = Price;
-            this.total = (float)Total(this.Quantity,this.unitPrice);
-        }
-    }
-
-
-    void display (){
-        System.out.println("Order No:" + this.orderNo);
-        System.out.println("Date:" + this.date);
-        System.out.println("ProductId   Name   Quantity   unit price   Total");
-        System.out.println("---------------------------------------------------------------------------------------------------");
-        for(int i = 0; i < pObject.length; i++){
-            System.out.println(pObject[i].ProductId +"  " + pObject[i].Name + "   " + pObject[i].Quantity + "   " + pObject[i].unitPrice + "   " + pObject[i].total);
-        }
-        System.out.println("---------------------------------------------------------------------------------------------------");
-        System.out.println("Net.Amount:" + Net_Amount);
-    }
+    return net_amount;
+  }
 }
-public class Question7 {
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Enter the Number of Orders:");
-        int n = scan.nextInt();
-        Order[] object =  new Order[n];
-        for (int i = 0; i < object.length; i++) {
-            System.out.println("Enter the Order No:");
-            int no = scan.nextInt();
-            object[i] = new Order(no);
-        }
-        System.out.println("Displaying..........");
-        for (int i = 0; i < object.length; i++) {
-            object[i].display();
-            System.out.println();
-        }
+
+public class Question7
+{
+  public static void main(String args[])
+  {
+    Scanner sc = new Scanner(System.in);
+    System.out.println("HOW MANY PRODUCT: ");
+    int size = sc.nextInt();
+    int[] prodId = new int[size];
+    char[] name = new char[size];
+    int[] quantity = new int[size];
+    int[] unit_price = new int[size];
+    for(int i=0; i<size; i++)
+    {
+      System.out.println("ENTER DETAILS OF PRODUCT "+ (i+1) + " PRODUCT_ID, NAME, QUANTITY, UNIT_PRICE");
+      prodId[i] = sc.nextInt();
+      sc.nextLine();
+      name[i] = sc.next().charAt(0);
+      quantity[i] = sc.nextInt();
+      unit_price[i] = sc.nextInt();
     }
+    Bill obj = new Bill(prodId,name,quantity,unit_price);
+    System.out.println("Net Amount: " + obj.calc(size));
+    sc.close();
+  }
 }

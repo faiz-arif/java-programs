@@ -1,3 +1,4 @@
+package CO3;
 import java.util.*;
 
 class Employee {
@@ -51,7 +52,7 @@ class functions {
         }
     }
 }
-public class Question2 {
+class Question2 {
     public static void main(String[] args) {
         functions object = new functions();
         object.insert();
