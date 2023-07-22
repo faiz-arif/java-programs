@@ -27,7 +27,7 @@ class Calculate{
     }
 }
 
-public class Question4 {
+public class Question04 {
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         Calculate obj = new Calculate();

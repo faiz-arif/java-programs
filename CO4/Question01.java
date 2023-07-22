@@ -5,7 +5,7 @@ import C04.Graphics.Triangle;
 import C04.Graphics.Square;
 import C04.Graphics.Circle;
 
-public class Question1 {
+public class Question01 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Rectangle objrect = new Rectangle();
