@@ -1,4 +1,4 @@
-package co6;
+package CO6;
 import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,9 +8,9 @@ class Question4 {
 		int number;
 		FileReader fileReader = null;
 		try {
-			FileWriter fileWriterOne = new FileWriter("C:\\Users\\ashna\\OneDrive\\Documents\\home study\\odd.txt");
-			FileWriter fileWriterTwo = new FileWriter("C:\\Users\\ashna\\OneDrive\\Documents\\home study\\even.txt");
-			fileReader = new FileReader("C:\\Users\\ashna\\OneDrive\\Documents\\home study\\data.txt");
+			FileWriter fileWriterOne = new FileWriter("D:\\Programs\\github-rep\\faiz-arif\\java-programs\\odd.txt");
+			FileWriter fileWriterTwo = new FileWriter("D:\\Programs\\github-rep\\faiz-arif\\java-programs\\even.txt");
+			fileReader = new FileReader("D:\\Programs\\github-rep\\faiz-arif\\java-programs\\data.txt");
 			while( ( number = fileReader.read() ) != -1){
 				char character = (char)number;
 				if( character % 2 == 0  )
@@ -27,3 +27,4 @@ class Question4 {
 		System.out.println();
 		fileReader.close();
 	}
+}

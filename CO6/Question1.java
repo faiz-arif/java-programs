@@ -1,4 +1,4 @@
-package co6;
+package CO6;
 import java.io.*;
 /*Program to list the sub directories and files in a given directory and also search for a file name.*/
 import java.util.Scanner;

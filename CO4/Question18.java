@@ -1,4 +1,4 @@
-package Collectionframes;
+package CO4;
 import java.util.HashMap;
 import java.util.TreeMap;
 import java.util.Scanner;

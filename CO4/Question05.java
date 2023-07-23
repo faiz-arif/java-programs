@@ -1,4 +1,4 @@
-package co4programs;
+package CO4;
 import java.util.*;
 import java.lang.Math;
 class Multiplicationtable extends Thread{

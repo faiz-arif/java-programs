@@ -1,4 +1,4 @@
-package Collectionframes;
+package CO4;
 import java.util.*;
 import java.util.Scanner;
 public class Question14 {

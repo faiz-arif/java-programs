@@ -1,33 +1,51 @@
-package co4programs;
+package CO4;
 import java.util.*;
-public class Question09  {
-    public static <T extends Comparable<T>> void bubbleSort(T[] array) {
-        int n = array.length;
-        boolean swapped;
-         for (int i = 0; i < n - 1; i++) {
-            swapped = false;
-          for (int j = 0; j < n - i - 1; j++) {
-                if (array[j].compareTo(array[j + 1]) > 0) {
-                    // Swap array[j] and array[j + 1]
-                    T temp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = temp;
-                    swapped = true;
-                }
-            }
-            if (!swapped) {
-                break;
-            }
+
+class BubbleSort 
+{
+  public static <T extends Comparable<T>> void bubbleSort (T[] list, int size) 
+  {
+    int swap = 1, oc, ic; 
+    T temp;
+    // swapOccurred helps to stop iterating if the array gets sorted before 
+    // outCounter reaches to size
+    for (oc = size - 1; oc > 0 && swap == 1; oc--)
+    {
+      swap = 0;
+      for (ic = 0; ic < oc; ic++)
+      {
+        if (list[ic].compareTo(list[ic+1]) > 0)
+        {
+          temp = list[ic];
+          list[ic] = list[ic+1];
+          list[ic+1] = temp;
+          swap = 1;
         }
+      }
     }
-        public static void main(String[] args) {
-        Integer[] intArray = {7,6,9,1,2,4};
-        System.out.println("Original Integer array: " + Arrays.toString(intArray));
-        bubbleSort(intArray);
-        System.out.println("Sorted Integer array: " + Arrays.toString(intArray));
-        String[] stringArray = {"ashna","joshna","aswin","devika","saniya"};
-        System.out.println("Original String array: " + Arrays.toString(stringArray));
-        bubbleSort(stringArray)
- System.out.println("Sorted String array: " + Arrays.toString(stringArray));
+  }
+}
+ 
+public class Question09 
+{
+  public static void main (String[] args)
+  {
+    Integer arr[] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+    BubbleSort.bubbleSort(arr, arr.length);
+ 
+    System.out.println("Sorted Array no 1: ");
+    for(Integer i : arr)
+    {
+      System.out.println(i);
     }
+    //separation1
+    String arrx[] = {"Bmw","Audi","Ferrari","Mazerati","Koenigsegg","Lexus"};
+    BubbleSort.bubbleSort(arrx, arrx.length);
+ 
+    System.out.println("Sorted Array no 2: ");
+    for(String i : arrx)
+    {
+      System.out.println(i);
+    }
+  }
 }
